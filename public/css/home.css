@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    width: 100vw;
+    background-color: #343a40;
+  }
+
+.header{
+    background-color: #ffffff;
+    color: #343a40;
+    width: 100vw;
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
+}
+
+.title-header{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    font-size: 2.5em;
+    font-family: 'Courgette', cursive;
+}
+
+.logo{
+    width: 100%;
+    object-fit: cover;
+}
+
+.nav-main-center{
+    justify-content: center;
+    padding: 0;
+}
+
+.profile-menu{
+    display: flex;
+    justify-content: center;
+}
+
+.profile-list{
+    list-style: none;
+    padding-top: 2em;
+    margin-left: 8em;
+    padding-left: 4em;
+}
+
+.link-profile{
+    display:block;
+}
+
+.profile-list li ul{
+    display:none;
+    position:absolute;
+    list-style: none;;
+}
+
+.profile-list li:hover > ul {
+    display:block;
+}
+
+.title-section{
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Courgette', cursive;
+    font-size: 2em;
+}
+
+.head-main{
+    justify-content: center;
+    align-items: center;
+    padding-top: 0.5em;
+}
+
+.container-logo-company{
+    height: 150px;
+    width: 100%;
+}
+
+.logo-company{
+    object-fit: contain;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+.nombre-company{
+    font-size: 10px;
+}

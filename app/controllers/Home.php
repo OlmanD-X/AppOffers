@@ -11,7 +11,7 @@
             $this->view(get_class($this).'/index');
         }
 
-        public function index_company($idCompany=null){
+        public function indexcompany($idCompany=null){
             session_start();
             if(!isset($_SESSION['usuario']))
                 header("location:../Login/index.php");
@@ -21,7 +21,7 @@
                 $_SESSION['usuario']['nombreEmpresa'] = $data->EMP_RS;
                 $_SESSION['usuario']['logo'] = $data->EMP_LOGO;
             }
-            $this->view(get_class($this).'/index-company');
+            $this->view(get_class($this).'/indexcompany');
         }
 
         public function index_detalles($idCompany=null){

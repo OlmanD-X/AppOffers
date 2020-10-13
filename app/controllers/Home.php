@@ -11,6 +11,19 @@
             $this->view(get_class($this).'/index');
         }
 
+        public function index_company($idCompany=null){
+            session_start();
+            if(!isset($_SESSION['usuario']))
+                header("location:../Login/index.php");
+            if(!is_null($idCompany)){
+                $data = $this->modelCompany->getCompany($idCompany);
+                $_SESSION['usuario']['empresa'] = $data->EMP_ID;
+                $_SESSION['usuario']['nombreEmpresa'] = $data->EMP_RS;
+                $_SESSION['usuario']['logo'] = $data->EMP_LOGO;
+            }
+            $this->view(get_class($this).'/index-company');
+        }
+
         public function index_detalles($idCompany=null){
             session_start();
             if(!isset($_SESSION['usuario']))

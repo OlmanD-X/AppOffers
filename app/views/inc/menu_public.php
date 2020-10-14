@@ -18,7 +18,7 @@
                                     <a href="/AppOffers/Chat" class="nav-link"> Chats</a>
                                 </li>
                                 <li class="nav-item d-none d-sm-inline-block">
-                                    <a href="/AppOffers/Cotizaciones" class="nav-link"> Cotizaciones</a>
+                                    <a href="/AppOffers/Cotizaciones/index_cotizacion" class="nav-link"> Cotizaciones</a>
                                 </li>
                             </ul>
                         </nav>

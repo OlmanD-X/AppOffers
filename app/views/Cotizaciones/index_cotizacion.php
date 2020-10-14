@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresas</title>
+    <title>App Offers</title>
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/fontawesome-free/css/all.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/dist/css/adminlte.min.css'?>">
+      <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/select2/css/select2.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/css/home.css'?>">
 </head>
 <body class="">
@@ -44,23 +46,40 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!--Detalles -->
+                    <!-- -->
                     <section class="content">
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-1"></div>
                                     <div class="col-10">
-                                            <!-- Main content -->
-                                        <div class="invoice p-3 mb-3" id="detalle-section">
+                                    <!-- Main content -->
+                                        <div class="invoice p-3 mb-3" id="detalle_solicitud">
                                             <!-- title row -->
-                                            
+                                            <div class="card-header">
+                                                <div class="row" style="align-items: center;">
+                                                    <div class="col-10"><h3 class="card-title">Lista de cotizaciones</h3></div>
+                                                </div>
+                                            </div>
+                                            <table id="productos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                                <thead>
+                                                    <tr role="row">
+                                                        <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="rpta">
+                                
+                                                </tbody>
+                                            </table> 
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- /.container-fluid -->
                     </section>
+                    <!--Detalles -->
                 </section>
             </div>  
         </div>
@@ -112,6 +131,6 @@
     <script src="<?php echo RUTA_URL.'/public/plugins/select2/js/select2.full.min.js'?>"></script>
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="<?php echo RUTA_URL.'/public/js/detalles.js'?>"></script>
+    <script src="<?php echo RUTA_URL.'/public/js/rpta_solicitud.js'?>"></script>
 </body>
 </html>

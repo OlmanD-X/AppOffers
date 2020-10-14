@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresas</title>
+    <title>App Offers</title>
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/fontawesome-free/css/all.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/dist/css/adminlte.min.css'?>">
+      <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/select2/css/select2.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/css/home.css'?>">
 </head>
 <body class="">
@@ -52,7 +54,7 @@
                                 <div class="col-1"></div>
                                     <div class="col-10">
                                             <!-- Main content -->
-                                        <div class="invoice p-3 mb-3" id="detalle-section">
+                                        <div class="invoice p-3 mb-3" id="detalle_solicitud">
                                             <!-- title row -->
                                             
                                         </div>
@@ -112,6 +114,6 @@
     <script src="<?php echo RUTA_URL.'/public/plugins/select2/js/select2.full.min.js'?>"></script>
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="<?php echo RUTA_URL.'/public/js/detalles.js'?>"></script>
+    <script src="<?php echo RUTA_URL.'/public/js/rpta_empresa.js'?>"></script>
 </body>
 </html>

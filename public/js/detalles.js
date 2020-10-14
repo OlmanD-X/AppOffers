@@ -5,41 +5,60 @@ const loadProducto = async()=>{
         const sectionProductos= document.getElementById('detalle-section')
         let html = ''
         const producto=response.response.data
-            html+=`
-            <div class="col-12 col-sm-6">
-              <h3 class="d-inline-block d-sm-none"></h3>
-              <div class="col-10">
-                <img src="/AppOffers/public/img/Products/${producto.imagen}" class="img-fluid logo-producto" alt="producto">
-              </div>
+            html+=`<div class="row">
+            <div class="col-11">
+                <h4>
+                    <i class="fas fa-globe"></i>${producto.empresa}
+                    <small class="float-right">Fecha: ${producto.fecha}</small>
+                </h4>
             </div>
-            <div class="col-12 col-sm-5">
-              <h3 class="my-3">${producto.nombre}</h3>
-              <p>${producto.caracteristica}</p>
-              <p><strong>${producto.empresa}</strong></p>
-              <h4>Ver colores</h4>
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-default text-center active">
-                  <input type="radio" name="color_option" id="color_option1" autocomplete="off" checked="">
-                  <i class="fas fa-circle fa-2x text-plomo"></i>
-                </label>
-              </div>
-
-              <div class="bg-gray py-2 px-3 mt-4">
-                <h2 class="mb-0">
-                  Precio: ${producto.precio}
-                </h2>
-              </div>
-
-              <div class="mt-4 product-share">
-                <a href="#" class="text-gray">
-                  <i class="fab fa-whatsapp-square fa-2x"></i>
-                </a>
-                <a href="#" class="text-gray">
-                      <i class="fas fa-comments fa-2x"></i>
-                </a>
-              </div>
+        </div>
+        <!-- info row -->
+        <br>
+        <div class="row invoice-info">
+            <div class="col-sm-5 invoice-col">    
+                Ruc:${producto.ruc}<br>
+                Dirección:${producto.direccion}<br>
+                Telefono:${producto.telefono}<br> 
             </div>
-            `
+            <!-- /.col -->
+            <br>
+            <div class="col-sm-1 invoice-col"> </div>
+            <div class="col-sm-6 invoice-col">
+                Nombre:${producto.nombre}<br>   
+                Caracteristicas:${producto.caracteristica}<br>
+                stock:${producto.stock}<br>
+            </div>
+        </div>
+        <br>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-6">
+                <img width="450px" height="400px" src="/AppOffers/public/img/Products/${producto.imagen}" alt="">
+            </div>
+            <div class="col-5">
+                <br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">Subtotal:</th>
+                            <td>${producto.precio}</td>
+                        </tr>
+                        <tr>
+                            <th>IGV (18%)</th>
+                            <td>${producto.precio*0.18}</td>
+                        </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <td>${producto.precio*(1+0.18)}</td>
+                        </tr>
+                    </table>
+                    <a href="https://wa.link/56i2xn"><i class="fab fa-whatsapp-square fa-2x"></i> Contactar empresa</a>
+                    
+                </div>
+            </div>
+        </div>
+        `
         sectionProductos.innerHTML = html
     }
     else{

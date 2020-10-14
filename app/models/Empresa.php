@@ -8,7 +8,7 @@
         }
 
         public function validateRuc($ruc){
-            $this->db->query("SELECT EMP_RUC FROM EMPRESAS WHERE EMP_RUC=:ruc;");
+            $this->db->query("EXEC sp_validar_ruc @ruc=:ruc");
             $this->db->bind(':ruc',$ruc);
             $data = $this->db->getRegisty();
             if(!empty($data->EMP_RUC))
@@ -28,26 +28,26 @@
         }
 
         public function getCompanies(){
-            $this->db->query("SELECT idEmpresa,ruc,razonSocial,direccion,telefono,imagen FROM Empresas WHERE stateEmpresa='1' AND isVerified='1'");
+            $this->db->query("sp_obtener_empresas");
             $data = $this->db->getRegisties();
             return $data;
         }
 
         public function getCompany($idCompany){
-            $this->db->query("SELECT idEmpresa,ruc,razonSocial,direccion,telefono,imagen FROM Empresas WHERE idEmpresa=:idCompany AND stateEmpresa='1' AND isVerified='1'");
+            $this->db->query("EXEC sp_obtenerEmpresa @idEmpresa=:idCompany");
             $this->db->bind(':idCompany',$idCompany);
             $data = $this->db->getRegisty();
             return $data;
         }
 
         public function deleteEmpresa($idCompany){
-            $this->db->query("UPDATE Empresas SET stateEmpresa='0' WHERE idEmpresa=:idCompany");
+            $this->db->query("EXEC sp_deleteEmpresa @idCompany=:idCompany");
             $this->db->bind(':idCompany',$idCompany);
             return $this->db->execute();
         }
 
         public function updateEmpresa($idEmpresa,$telefono,$direccion){
-            $this->db->query("UPDATE Empresas SET telefono=:telefono, direccion=:direccion WHERE idEmpresa=:idEmpresa");
+            $this->db->query("EXEC sp_updateEmpresa @telefono=:telefono, @direccion=:direccion, @idEmpresa=:idEmpresa");
             $this->db->bind(':telefono',$telefono);
             $this->db->bind(':direccion',$direccion);
             $this->db->bind(':idEmpresa',$idEmpresa);
@@ -55,8 +55,8 @@
         }
 
         public function getCompany_solicitud($idCompany){
-            $this->db->query("SELECT idEmpresa,ruc,razonSocial,direccion,telefono,imagen FROM Empresas WHERE idEmpresa=:idCompany AND stateEmpresa='1' AND isVerified='0'");
-            $this->db->bind(':idCompany',$idCompany);
+            $this->db->query("EXEC sp_empresa_solicitud @idEmpresa=:idEmpresa");
+            $this->db->bind(':idEmpresa',$idCompany);
             $data = $this->db->getRegisty();
             return $data;
         }

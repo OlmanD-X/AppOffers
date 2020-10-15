@@ -47,6 +47,10 @@
             }
         }
         public function deleteProducto($idProducto){   
+            $isRegisty = $this->modelProduct->validateEliminar($idProducto);
+            if($isRegisty){
+                throwError(DELETED_DATA_NOT_COMPLETE,'El producto no puede ser eliminado');
+            }
             $registyOk = $this->modelProduct->eliminarProducto($idProducto);
             if($registyOk){
                 returnResponse(REGISTY_DELETE_SUCCESSFULLY,'El producto fue eliminado con éxito');

@@ -119,7 +119,6 @@ $(document).on('click','.verDetalle', async function () {
         const sectionDetalle= document.getElementById('cuerpo')
         let html = ''
         const detalle=response.response.data
-        console.dir(detalle)
             html+=`
             <div class="col-12 col-sm-6">
               <h3 class="d-inline-block d-sm-none"></h3>

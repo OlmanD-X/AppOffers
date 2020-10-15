@@ -18,24 +18,6 @@
 <body>
     <?php require_once RUTA_APP.'/views/inc/menu-us.php'; ?>
     <main>
-        <!-- <div class="container-fluid">
-            <div class="row head-main">
-                <div class="col-8">
-                    <span class="title-section">Listado</span>
-                </div>
-                <div class="col-3">
-                    <div class="input-group input-group-sm">
-                        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-light" type="button">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
     <!-- Main content -->
         <div class="card mt-1 mb-0">
             <div class="card-header">

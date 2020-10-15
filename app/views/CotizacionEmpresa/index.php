@@ -40,7 +40,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="productos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                        <table id="pedidos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
@@ -54,24 +54,6 @@
                                     <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">1</td>
                                     <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop Lenovo</td>
                                     <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Pendiente</td>
-                                    <td class="a-right a-right" width="100px">
-                                        <button type="button" class="btn btn-outline-primary verDetalle"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
-                                        <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                                    </td>
-                                </tr>
-                                <tr role="row">
-                                    <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">2</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop Toshiba</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Pendiente</td>
-                                    <td class="a-right a-right" width="100px">
-                                        <button type="button" class="btn btn-outline-primary verDetalle"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
-                                        <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                                    </td>
-                                </tr>
-                                <tr role="row">
-                                    <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">3</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop HP</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">En contacto</td>
                                     <td class="a-right a-right" width="100px">
                                         <button type="button" class="btn btn-outline-primary verDetalle"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
                                         <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>

@@ -12,12 +12,20 @@
             $this->db->bind(':nombre',$nombre);
             $data = $this->db->getRegisty();
             if(!empty($data->nombre))
-
                 return true;
             else
                 return false; 
         }
-
+        public function validateEliminar($idProducto){
+            $this->db->query("SELECT*FROM Producto p INNER JOIN DetalleSolicitudProducto d ON p.idProducto=d.idProducto
+            WHERE p.idProducto=:id");
+            $this->db->bind(':id',$idProducto);
+            $data = $this->db->getRegisty();
+            if(!empty($data->nombre))
+                return true;
+            else
+                return false; 
+        }
         public function agregarProducto($nombre,$descripcion,$precio,$stock,$stockminimo,$imagen,$oferta,$selectsub,$caracteristicas,$idEmpresa,$ruc){
             $path = '../public/img/Products/';
             $nombreimagen = validate_upload_file($imagen,$path,$ruc.'-'.$nombre,'IMAGE');

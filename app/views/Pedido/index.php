@@ -39,43 +39,45 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="productos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                        <table id="pedidos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row">
-                                    <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
-                                    <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
-                                    <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
-                                    <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Pedido</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mt-2">
+            <div class="card-header">
+                <div class="row" style="align-items: center;">
+                    <div class="col-10"><h3 class="card-title">Listado de Pedidos Personalizados</h3></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="pedidosP" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
                                 <tr role="row">
-                                    <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">1</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop Lenovo</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Pendiente</td>
-                                    <td class="a-right a-right" width="100px">
-                                        <button type="button" class="btn btn-outline-primary verDetalle1"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
-                                        <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                                    </td>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Pedido</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
+                                    <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
                                 </tr>
-                                <tr role="row">
-                                    <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">2</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop Toshiba</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Pendiente</td>
-                                    <td class="a-right a-right" width="100px">
-                                        <button type="button" class="btn btn-outline-primary verDetalle2"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
-                                        <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                                    </td>
-                                </tr>
-                                <tr role="row">
-                                    <td class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">3</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Laptop HP</td>
-                                    <td class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Leido</td>
-                                    <td class="a-right a-right" width="100px">
-                                        <button type="button" class="btn btn-outline-primary verDetalle3"><i class="fas fa-eye" style="pointer-events:none;"></i></button>
-                                        <button type="button" class="btn btn-outline-danger eliminarProducto"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                                    </td>
-                                </tr>
+                            </thead>
+                            <tbody>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -86,6 +88,26 @@
     </section>
     <!-- /.content -->
   </div>
+  <!-- Modal -->
+  <div class="modal fade" id="verDetalle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalle Pedido</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body" id="cuerpo">
+            </div>
+            <div class="modal-footer" style="justify-content: center;">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
+                <button type="button" class="btn btn-success" id="contraofertar"><i class="fas fa-paper-plane"></i> Contraofertar</button>
+            </div>
+            </div>
+        </div>
+</div>
+
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

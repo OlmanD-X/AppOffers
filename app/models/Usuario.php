@@ -8,36 +8,34 @@
         }
 
         public function login($user){
-            $this->db->query("SELECT idUsuario,idTipoUsuario,nameUser,pass,idEmpresa FROM Usuarios WHERE nameUser=:username;");
+            $this->db->query("EXEC sp_login @nameUser=:username");
             $this->db->bind(':username',$user);
             return $this->db->getRegisty();
         }
 
 
         public function getUsuarios(){
-            $this->db->query("SELECT U.idUsuario as idUsuario,t.descripcion as descripcion,u.nameUser as usuario,e.razonSocial as razonSocial,e.imagen as imagen,u.stateUser as estado
-            FROM Usuarios u inner join Empresas e on u.idEmpresa=e.idEmpresa inner join TipoUsuario t on t.idTipoUsuario=u.idTipoUsuario WHERE stateUser='1'");
+            $this->db->query("EXEC sp_obtenerUsuarios");
             $data = $this->db->getRegisties();
             return $data;
         }
 
         public function getUsuario($idUser){
-            $this->db->query("SELECT U.idUsuario as idUsuario, u.idTipoUsuario,u.nameUser as usuario,u.pass,u.stateUser as estado,e.idEmpresa,e.razonSocial as razonSocial,e.ruc as ruc,e.imagen as imagen
-            FROM Usuarios u inner join Empresas e on u.idEmpresa=e.idEmpresa WHERE u.idUsuario=:iduser;");
+            $this->db->query("EXEC sp_obtenerUsuario @idUser=:iduser ");
             $this->db->bind(':iduser',$idUser);
             $data = $this->db->getRegisty();
             return $data;
         }
 
         public function deleteUsuario($idUsuario){
-            $this->db->query("UPDATE Usuarios SET stateUser='0' WHERE idUsuario=:idUsuario");
+            $this->db->query("EXEC sp_deleteUsuario @idUser=:idUsuario");
             $this->db->bind(':idUsuario',$idUsuario);
             return $this->db->execute();
         }
 
         public function getEmpresa($id){
-            $this->db->query("SELECT ruc,razonSocial,imagen FROM Empresas WHERE idEmpresa=:id;");
-            $this->db->bind(':id',$id);
+            $this->db->query("EXEC sp_obtenerUser_Empresa @idUser=:idUsuario");
+            $this->db->bind(':idUsuario',$id);
             return $this->db->getRegisty();
         }
         

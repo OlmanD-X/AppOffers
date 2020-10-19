@@ -12,7 +12,7 @@
                         <nav class="col-5 navbar navbar-expand navbar-white navbar-light nav-main-center">
                             <ul class="navbar-nav">
                                 <li class="nav-item d-none d-sm-inline-block">
-                                    <a href="/AppOffers/Home" class="nav-link"> Inicio</a>
+                                    <a href="/AppOffers/Inicio" class="nav-link"> Inicio</a>
                                 </li>
                                 <li class="nav-item d-none d-sm-inline-block">
                                     <a href="/AppOffers/Chat" class="nav-link"> Chats</a>

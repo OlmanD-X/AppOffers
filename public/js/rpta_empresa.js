@@ -1,6 +1,6 @@
 const loadSolicitud_empresa = async()=>{
     let estado = await fetch('/AppOffers/Cotizaciones/actualizar_estado/'+location.pathname.substr(1).split('/')[3])
-    let response = await fetch('/AppOffers/Cotizaciones/get_rpta_empresa/'+location.pathname.substr(1).split('/')[3])
+    let response = await fetch('/AppOffers/Cotizaciones/get_rpta_empresa/'+location.pathname.substr(1).split('/')[3]+'/'+location.pathname.substr(1).split('/')[4]+'/'+location.pathname.substr(1).split('/')[5])
     let nro=0
     response = await response.json()
     if(response.status==203){
@@ -32,6 +32,7 @@ const loadSolicitud_empresa = async()=>{
                 <div class="col-sm-6 invoice-col">
                     Nombre:${solicitud.nombre}<br>   
                     Caracteristicas:${solicitud.caracteristica}<br>
+                    Cantidad:${solicitud.cantidad}<br>
                     stock:${solicitud.stock}<br>
                 </div>
             </div>
@@ -51,15 +52,14 @@ const loadSolicitud_empresa = async()=>{
                             </tr>
                             <tr>
                                 <th>IGV (18%)</th>
-                                <td>${solicitud.precio*0.18}</td>
+                                <td>${(solicitud.precio*0.18).toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td>${solicitud.precio*(1+0.18)}</td>
+                                <td>${(solicitud.precio*(1+0.18)).toFixed(2)}</td>
                             </tr>
                         </table>
-                        <a href="https://wa.link/56i2xn"><i class="fab fa-whatsapp-square fa-2x"></i> Contactar empresa</a>
-                        
+                        <a href="https://wa.link/56i2xn"><i class="fab fa-whatsapp-square fa-2x"></i> Contactar empresa</a>                      
                     </div>
                 </div>
             </div>

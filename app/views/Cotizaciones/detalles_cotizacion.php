@@ -6,8 +6,6 @@
     <title>App Offers</title>
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/fontawesome-free/css/all.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/dist/css/adminlte.min.css'?>">
-      <!-- Select2 -->
-    <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/select2/css/select2.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/css/home.css'?>">
 </head>
 <body class="">
@@ -23,8 +21,8 @@
                             <?php 
                                 if($parameters['usuario']!=null){
                             ?>
-                                <div class="col-6"><h3 class="card-title">Galeria de productos</h3></div>
-                                <div class="col-2"><button class="btn btn-info" data-toggle="modal" data-target="#addSolicitud"><i class="fas fa-file"></i> Iniciar Cotización</button></div>
+                                <div class="col-6"><h3 class="card-title"></h3></div>
+                                <div class="col-2"></div>
                             <?php
                                 }
                                 else{

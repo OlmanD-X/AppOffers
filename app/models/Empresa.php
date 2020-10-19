@@ -17,16 +17,6 @@
                 return false; 
         }
 
-        public function addCompany($nombre,$ruc,$email,$telefono,$logo){
-            $this->db->query("INSERT INTO EMPRESAS(EMP_RS,EMP_RUC,EMP_EMAIL,EMP_TELEFONO,EMP_LOGO,EMP_ESTADO) VALUES(:nombre,:ruc,:email,:telefono,:logo,'ACTIVO')");
-            $this->db->bind(':nombre',$nombre);
-            $this->db->bind(':ruc',$ruc);
-            $this->db->bind(':email',$email);
-            $this->db->bind(':telefono',$telefono);
-            $this->db->bind(':logo',$logo);
-            return $this->db->execute();
-        }
-
         public function getCompanies(){
             $this->db->query("sp_obtener_empresas");
             $data = $this->db->getRegisties();
@@ -59,5 +49,15 @@
             $this->db->bind(':idEmpresa',$idCompany);
             $data = $this->db->getRegisty();
             return $data;
+        }
+
+        public function addCompany($nombre,$ruc,$email,$telefono,$logo){
+            $this->db->query("INSERT INTO EMPRESAS(EMP_RS,EMP_RUC,EMP_EMAIL,EMP_TELEFONO,EMP_LOGO,EMP_ESTADO) VALUES(:nombre,:ruc,:email,:telefono,:logo,'ACTIVO')");
+            $this->db->bind(':nombre',$nombre);
+            $this->db->bind(':ruc',$ruc);
+            $this->db->bind(':email',$email);
+            $this->db->bind(':telefono',$telefono);
+            $this->db->bind(':logo',$logo);
+            return $this->db->execute();
         }
     }

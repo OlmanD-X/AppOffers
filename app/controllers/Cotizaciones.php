@@ -50,9 +50,9 @@
             }
         }
 
-        public function get_solicitud_empresa(){
+        public function get_solicitudPersonalizada_empresa(){
             session_start();
-            $data = $this->modelCotizaciones->get_solicitud_empresa($_SESSION['usuario']['idUsuario']);
+            $data = $this->modelCotizaciones->get_solicitudPersonalizada_empresa($_SESSION['usuario']['idUsuario']);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }
@@ -61,14 +61,27 @@
             }
         }
 
-        public function get_rpta_empresa($idSolicitud){
-            $data = $this->modelCotizaciones->get_rpta_empresa($idSolicitud);
-            if(empty($data)){
-                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+        public function get_rpta_empresa($idSolicitud,$idEmpresa,$SP){ 
+            if($SP=='True'){
+                $data = $this->modelCotizaciones->get_rptaSP_empresa($idSolicitud,$idEmpresa);
+                if(empty($data)){
+                    throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+                }
+                else{
+                    returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+                }
+            }elseif($SP=='False') {
+                $data = $this->modelCotizaciones->get_rpta_empresa($idSolicitud,$idEmpresa);
+                if(empty($data)){
+                    throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+                }
+                else{
+                    returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+                }
+            }else{
+                    returnResponse(PARAMETER_IS_INVALID,'El parámetro es invalido',$data);
             }
-            else{
-                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
-            }
+            
         }
 
         public function actualizar_estado($idSolicitud){    
@@ -93,6 +106,28 @@
                 throwError(INSERTED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
             }  
         }
+
+        public function enviar_solicitud(){
+            $registyOk = $this->modelCotizaciones->actualizar_estado_aceptado($_SESSION['usuario']['idUsuario']);
+            if($registyOk){
+                returnResponse(REGISTY_INSERT_SUCCESSFULLY,'Los datos fueron actualizados con éxito');
+            }
+            else{
+                throwError(INSERTED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
+            }  
+        }
+
+        public function get_solicitud_empresa(){
+            session_start();
+            $data = $this->modelCotizaciones->get_solicitud_empresa($_SESSION['usuario']['idUsuario']);
+            if(empty($data)){
+                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+            }
+            else{
+                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+            }
+        }
+        
     }
 
     //This master branch

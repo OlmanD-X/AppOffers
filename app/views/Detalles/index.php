@@ -6,6 +6,8 @@
     <title>Empresas</title>
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/fontawesome-free/css/all.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/dist/css/adminlte.min.css'?>">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/select2/css/select2.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/css/home.css'?>">
 </head>
 <body class="">
@@ -113,5 +115,6 @@
     <!-- Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="<?php echo RUTA_URL.'/public/js/detalles.js'?>"></script>
+    <script src="<?php echo RUTA_URL.'/public/js/solicitudPublic.js'?>"></script>
 </body>
 </html>

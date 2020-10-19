@@ -6,8 +6,6 @@
     <title>App Offers</title>
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/fontawesome-free/css/all.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/dist/css/adminlte.min.css'?>">
-      <!-- Select2 -->
-    <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/plugins/select2/css/select2.min.css'?>">
     <link rel="stylesheet" href="<?php echo RUTA_URL.'/public/css/home.css'?>">
 </head>
 <body class="">
@@ -23,8 +21,8 @@
                             <?php 
                                 if($parameters['usuario']!=null){
                             ?>
-                                <div class="col-6"><h3 class="card-title">Galeria de productos</h3></div>
-                                <div class="col-2"><button class="btn btn-info" data-toggle="modal" data-target="#addSolicitud"><i class="fas fa-file"></i> Iniciar Cotización</button></div>
+                                <div class="col-6"><h3 class="card-title"></h3></div>
+                                <div class="col-2"></div>
                             <?php
                                 }
                                 else{
@@ -52,32 +50,69 @@
                             <div class="row">
                                 <div class="col-1"></div>
                                     <div class="col-10">
-                                    <!-- Main content -->
+                                        <!-- Main content -->
                                         <div class="invoice p-3 mb-3" id="detalle_solicitud">
                                             <!-- title row -->
                                             <div class="card-header">
                                                 <div class="row" style="align-items: center;">
-                                                    <div class="col-10"><h3 class="card-title">Lista de cotizaciones</h3></div>
+                                                    <div class="col-10"><h3 class="card-title">Respuestas a cotizaciones personalizadas</h3></div>
                                                 </div>
                                             </div>
+                                            <br>
                                             <table id="productos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                                 <thead>
                                                     <tr role="row">
                                                         <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
                                                         <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Empresa</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Fecha</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 200.0px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado de la solicitud</th>
+                                                        <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 170.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="rpta">
                                 
                                                 </tbody>
                                             </table> 
+                                
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.container-fluid -->
+                        <!--  -->
+                            <div class="row">
+                                    <div class="col-1"></div>
+                                        <div class="col-10">
+                                            <!-- Main content -->
+                                            <div class="invoice p-3 mb-3" id="detalle_solicitud">
+                                                <!-- title row -->
+                                                <div class="card-header">
+                                                    <div class="row" style="align-items: center;">
+                                                        <div class="col-10"><h3 class="card-title">Respuestas a cotizaciones</h3></div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <table id="productos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Empresa</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Fecha</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 200.0px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado de la solicitud</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 170.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="rpta_solicitud">
+                                    
+                                                    </tbody>
+                                                </table> 
+                                    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.container-fluid -->
                     </section>
                     <!--Detalles -->
                 </section>

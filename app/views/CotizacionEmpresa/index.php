@@ -108,8 +108,8 @@
 <script src="<?php echo RUTA_URL.'/public/plugins/jquery/jquery.min.js'?>"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo RUTA_URL.'/public/plugins/bootstrap/js/bootstrap.bundle.min.js'?>"></script>
-    <!-- Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!-- Sweet Alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- Select2 -->
 <script src="<?php echo RUTA_URL.'/public/plugins/select2/js/select2.full.min.js'?>"></script>
 <!-- DataTables -->

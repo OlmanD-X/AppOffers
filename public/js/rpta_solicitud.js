@@ -55,21 +55,20 @@ const loadSolicitudes = async()=>{
     let response = await fetch('/AppOffers/Cotizaciones/get_solicitud_empresa')
     let nro=0
     response = await response.json()
-    if(response){
-        if(response.status==203){
-            nro++
-            const sectionCompanies= document.getElementById('rpta_solicitud')
-            let html = ''
-            let estado = ''
-            for (const solicitud of response.response.data) {
-                if(solicitud.stateEmpresa=='1' ){
-                    estado="Pendiente"
-                }else if(solicitud.stateEmpresa=='2'){
-                    estado="Visto"
-                }else if(solicitud.stateEmpresa=='3'){
-                    estado="Aceptado"
-                }
-                html+=
+    if(response.status==203){
+        nro++
+        const sectionCompanies= document.getElementById('rpta_solicitud')
+        let html = ''
+        let estado = ''
+        for (const solicitud of response.response.data) {
+            if(solicitud.stateEmpresa=='1' ){
+                estado="Pendiente"
+            }else if(solicitud.stateEmpresa=='2'){
+                estado="Visto"
+            }else if(solicitud.stateEmpresa=='3'){
+                estado="Aceptado"
+            }
+            html+=
                 `<tr id="${solicitud.idSolicitud}">
                     <td>${nro}</td>
                     <td>${solicitud.nombre}</td>
@@ -85,22 +84,18 @@ const loadSolicitudes = async()=>{
               `
             }
             sectionCompanies.innerHTML = html
-        }else if(response.status==304){
-            const sectionCompanies= document.getElementById('rpta')
+    }else if(response.status==304){
+            const sectionCompanies= document.getElementById('rpta_solicitud')
             let html = ''
             sectionCompanies.innerHTML = html
-        }
-        else{
+    }
+    else{
             Swal.fire(
                 'Error',
                 response.response.message,
                 'error'
               )
-        }
-    }else{
-        html=''
-        sectionCompanies.innerHTML = html
-    }  
+     }
 }
 
 $(document).on('click','.cotizacion-aceptada', async function() {
@@ -121,7 +116,7 @@ $(document).on('click','.cotizacion-eliminada', async function() {
     console.log(id)
     let estado = await fetch('/AppOffers/Cotizaciones/eliminar_solicitud_empresa/'+id);
     estado = await estado.json()
-    if(estado.status==20){
+    if(estado.status==203){
         Swal.fire(
             'Solicitud eliminada',
           )
@@ -135,7 +130,7 @@ $(document).on('click','.cotizacion-personalizada-eliminada', async function() {
     console.log(id)
     let estado = await fetch('/AppOffers/Cotizaciones/eliminar_solicitudPersonalizada_empresa/'+id);
     estado = await estado.json()
-    if(estado.status==200){
+    if(estado.status==203){
         Swal.fire(
             'Solicitud eliminada',
           )     

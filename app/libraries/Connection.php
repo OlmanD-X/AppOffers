@@ -11,13 +11,13 @@
 
         public function __construct(){
             //$dsn = 'mysql:host='.$this->host.';dbname='.$this->db_name;
-            $dsn = "sqlsrv:Server=LAPTOP-A4RUJVVG\MSSQLSERVERGR;Database=AppOffers";
+            $dsn = 'sqlsrv:Server=DESKTOP-TSBBEB8;Database=AppOffers';
             $options = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
             );
             
             try {
-                $this->dbh = new PDO($dsn,"sa","priscila",$options);
+                $this->dbh = new PDO($dsn,"","",$options);
             } catch (PDOException $e) {
                 $this->error = $e->getMessage();
                 echo 'Error:'.$this->error;

@@ -4,12 +4,10 @@ addEventListener('DOMContentLoaded',()=>{
 })
 
 const cargarTablaPedidos = async()=>{
-    let response = await fetch('/AppOffers/Pedido/getAllPedidos')
+    let response = await fetch('/AppOffers/CotizacionEmpresa/leer_cotizacion_producto')
     let estado
-    let nro=0
     response = await response.json()
-    if(response.status==203 || response.status==304){
-        nro++
+    if(response.status==203){
         const sectionCompanies= document.getElementById('rpta')
         let html = ''
         for (const pedido of response.response.data) {
@@ -18,18 +16,21 @@ const cargarTablaPedidos = async()=>{
             }
             html+=
             `<tr id="${pedido.id}">
-                <td>${nro}</td>
+                <td>${pedido.numero}</td>
                 <td>${pedido.nombre}</td>  
                 <td>${pedido.fecha}</td>
                 <td>${estado}</td>                    
                 <td class="a-right a-right" width="100px">
                     <a href="/AppOffers/Pedido/detallePedido/${pedido.id}" class="btn btn-outline-primary"><i class="fas fa-eye" style="pointer-events:none;"></i></a>
-                    <button type="button" class="btn btn-outline-success aceptarPedido"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
                     <button type="button" class="btn btn-outline-danger rechazarPedido"><i class="fas fa-times" style="pointer-events:none;"></i></button>
                 </td>
             </tr>
           `
         }
+        sectionCompanies.innerHTML = html
+    }else if(response.status==304){
+        const sectionCompanies= document.getElementById('rpta')
+        let html = ''
         sectionCompanies.innerHTML = html
     }
     else{
@@ -42,12 +43,11 @@ const cargarTablaPedidos = async()=>{
 }
 
 const cargarTablaPedidosPersonalizados = async()=>{
-    let response = await fetch('/AppOffers/Pedido/getAllPedidosPersonalizados')
+    let response = await fetch('/AppOffers/CotizacionEmpresa/leer_cotizaciones_personalizadas')
+    console.log()
     let estado
-    let nro=0
     response = await response.json()
-    if(response.status==203 || response.status==304){
-        nro++
+    if(response.status==203){
         const sectionCompanies= document.getElementById('rpta2')
         let html = ''
         for (const pedido of response.response.data) {
@@ -56,18 +56,21 @@ const cargarTablaPedidosPersonalizados = async()=>{
             }
             html+=
             `<tr id="${pedido.id}">
-                <td>${nro}</td>
-                <td>${pedido.nombre}</td>
+                <td>${pedido.numero}</td>
+                <td>${pedido.subcategoria}</td>
                 <td>${pedido.fecha}</td>
                 <td>${estado}</td>                    
                 <td class="a-right a-right" width="100px">
                     <a href="/AppOffers/Pedido/detallePedidoPersonalizado/${pedido.id}" class="btn btn-outline-primary"><i class="fas fa-eye" style="pointer-events:none;"></i></a>
-                    <button type="button" class="btn btn-outline-success aceptarPedido"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
                     <button type="button" class="btn btn-outline-danger rechazarPedido"><i class="fas fa-times" style="pointer-events:none;"></i></button>
                 </td>
             </tr>
           `
         }
+        sectionCompanies.innerHTML = html
+    }else if(response.status==304){
+        const sectionCompanies= document.getElementById('rpta2')
+        let html = ''
         sectionCompanies.innerHTML = html
     }
     else{

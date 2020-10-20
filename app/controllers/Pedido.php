@@ -21,8 +21,9 @@
             }
         }
         public function getAllPedidosPersonalizados()
-        {
-            $data = $this->modelPedido->mostrarTodosPedidosPersonalizados();
+        {   
+            session_start();
+            $data = $this->modelPedido->mostrarTodosPedidosPersonalizados($_SESSION['usuario']['idEmpresa']);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }
@@ -34,6 +35,16 @@
         public function aceptar($idSolicitud)
         {
             $registyOk = $this->modelPedido->aceptarPedido($idSolicitud);
+            if($registyOk){
+                returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
+            }
+            else{
+                throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
+            }
+        }
+        public function leer($idSolicitud)
+        {
+            $registyOk = $this->modelPedido->PedidoPersonalizadoLeido($idSolicitud);
             if($registyOk){
                 returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
             }
@@ -83,7 +94,8 @@
         }
         public function getDetallePersonalizado($idSolicitud)
         {
-            $data = $this->modelPedido->mostrarDetallePedidoPersonalizado($idSolicitud);
+            session_start();
+            $data = $this->modelPedido->mostrarDetallePedidoPersonalizado($idSolicitud,$_SESSION['usuario']['idEmpresa']);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }

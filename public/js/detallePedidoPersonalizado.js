@@ -26,7 +26,6 @@ const loadPedido = async()=>{
             </div>
             <br>
             <a href="/AppOffers/Pedido/detallePedidoPersonalizado/${pedido.id}" class="btn btn-outline-primary"><i class="fas fa-paper-plane" style="pointer-events:none;"></i>Contraoferta</a>
-            <a href="https://wa.link/56i2xn"><i class="fab fa-whatsapp-square fa-2x"></i> Contactar empresa</a>
 
         `
         }

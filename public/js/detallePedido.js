@@ -5,7 +5,6 @@ const loadPedido = async()=>{
         const sectionCompanies= document.getElementById('detalle_pedido')
         let html = ''
         for (const pedido of response.response.data) {
-            console.dir(pedido)
             html+=
             `<div class="row">
                 <div class="col-11">

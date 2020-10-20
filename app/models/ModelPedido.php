@@ -11,8 +11,9 @@
             $data = $this->db->getRegisties();
             return $data;
         }
-        public function mostrarTodosPedidosPersonalizados(){
-            $this->db->query("EXECUTE SP_LeerSolicitudPersonalizado");
+        public function mostrarTodosPedidosPersonalizados($idEmpresa){
+            $this->db->query("EXECUTE SP_LeerSolicitudPersonalizado @idEmpresa=:id");
+            $this->db->bind(':id',$idEmpresa);
             $data = $this->db->getRegisties();
             return $data;
         }
@@ -42,10 +43,16 @@
             $data = $this->db->getRegisties();
             return $data;
         }
-        public function mostrarDetallePedidoPersonalizado($idSolicitud){
-            $this->db->query("EXECUTE SP_DetallePedidoPersonalizada @id=:id");
+        public function mostrarDetallePedidoPersonalizado($idSolicitud,$idEmpresa){
+            $this->db->query("EXECUTE SP_DetallePedidoPersonalizada @id=:id, @idEmpresa=:idEmpresa");
             $this->db->bind(':id',$idSolicitud);
+            $this->db->bind(':idEmpresa',$idEmpresa);
             $data = $this->db->getRegisties();
             return $data;
+        }
+        public function PedidoPersonalizadoLeido($idSolicitud){
+            $this->db->query("EXECUTE SP_LeerPedidoPersonalizado @id=:id");
+            $this->db->bind(':id',$idSolicitud);
+            return $this->db->execute();
         }
     }

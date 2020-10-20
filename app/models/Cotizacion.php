@@ -67,9 +67,10 @@
             return $this->db->execute();
         }
 
-        public function eliminar_solicitud_personalizada($idSolicitud){
-            $this->db->query("EXEC sp_eliminar_solicitud_personalizada @idSolicitud=:idSolicitud");
+        public function eliminar_solicitud_personalizada($idSolicitud,$idEmpresa){
+            $this->db->query("EXEC sp_eliminar_solicitud_personalizada @idSolicitud=:idSolicitud, @idEmpresa=:idEmpresa");
             $this->db->bind(':idSolicitud',$idSolicitud);
+            $this->db->bind(':idEmpresa',$idEmpresa);
             return $this->db->execute();
         }
 

@@ -127,6 +127,26 @@
                 returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
             }
         }
+
+        public function eliminar_solicitud_empresa($idSolicitud){
+            $data = $this->modelCotizaciones->eliminar_solicitud($idSolicitud);
+            if(empty($data)){
+                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+            }
+            else{
+                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+            }
+        }
+
+        public function eliminar_solicitudPersonalizada_empresa($idSolicitud,$idEmpresa){
+            $data = $this->modelCotizaciones->eliminar_solicitud_personalizada($idSolicitud,$idEmpresa);
+            if(empty($data)){
+                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+            }
+            else{
+                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+            }
+        }
         
     }
 

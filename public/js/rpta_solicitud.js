@@ -20,9 +20,8 @@ const loadSolicitudesPersonalizadas = async()=>{
             }else if(solicitud.stateEmpresa=='3'){
                 estado="Aceptado"
             }
-            console.log(estado)
             html+=
-            `<tr id="${solicitud.idSolicitud}">
+            `<tr idPersonalizada="${solicitud.idSolicitud+'/'+solicitud.idEmpresa}">
                 <td>${nro}</td>
                 <td>${solicitud.nombre}</td>
                 <td>${solicitud.razonSocial}</td>
@@ -31,7 +30,7 @@ const loadSolicitudesPersonalizadas = async()=>{
                 <td class="a-right a-right" width="100px">
                     <a href="/AppOffers/Cotizaciones/detalles_cotizacion/${solicitud.idSolicitud}/${solicitud.idEmpresa}/True" class="btn btn-outline-primary"><i class="fas fa-eye" style="pointer-events:none;"></i></a>
                     <button type="button" class="cotizacion-aceptada btn btn-outline-success"><i class="far fa-check-circle" style="pointer-events:none;"></i></button>
-                    <button type="button" class="cotizacion-eliminada btn btn-outline-danger"><i class="far fa-trash-alt" style="pointer-events:none;"></i></button>
+                    <button type="button" class="cotizacion-personalizada-eliminada btn btn-outline-danger"><i class="far fa-trash-alt" style="pointer-events:none;"></i></button>
                 </td>
             </tr>
           `
@@ -65,7 +64,6 @@ const loadSolicitudes = async()=>{
             }else if(solicitud.stateEmpresa=='3'){
                 estado="Aceptado"
             }
-            console.log(estado)
             html+=
             `<tr id="${solicitud.idSolicitud}">
                 <td>${nro}</td>
@@ -102,4 +100,33 @@ $(document).on('click','.cotizacion-aceptada', async function() {
             'Solicitud aceptada',
           )
     }
+});
+
+
+$(document).on('click','.cotizacion-eliminada', async function() {
+    let element = $(this)[0].parentElement.parentElement;
+    let id = $(element).attr('id');
+    console.log(id)
+    let estado = await fetch('/AppOffers/Cotizaciones/eliminar_solicitud_empresa/'+id);
+    estado = await estado.json()
+    if(estado.status==200){
+        Swal.fire(
+            'Solicitud eliminada',
+          )
+    }
+    loadSolicitudes()
+});
+
+$(document).on('click','.cotizacion-personalizada-eliminada', async function() {
+    let element = $(this)[0].parentElement.parentElement;
+    let id = $(element).attr('idPersonalizada');
+    console.log(id)
+    let estado = await fetch('/AppOffers/Cotizaciones/eliminar_solicitudPersonalizada_empresa/'+id);
+    estado = await estado.json()
+    if(estado.status==200){
+        Swal.fire(
+            'Solicitud eliminada',
+          )     
+    }
+    loadSolicitudesPersonalizadas()
 });

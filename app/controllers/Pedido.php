@@ -21,8 +21,9 @@
             }
         }
         public function getAllPedidosPersonalizados()
-        {
-            $data = $this->modelPedido->mostrarTodosPedidosPersonalizados();
+        {   
+            session_start();
+            $data = $this->modelPedido->mostrarTodosPedidosPersonalizados($_SESSION['usuario']['idEmpresa']);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }
@@ -83,7 +84,8 @@
         }
         public function getDetallePersonalizado($idSolicitud)
         {
-            $data = $this->modelPedido->mostrarDetallePedidoPersonalizado($idSolicitud);
+            session_start();
+            $data = $this->modelPedido->mostrarDetallePedidoPersonalizado($idSolicitud,$_SESSION['usuario']['idEmpresa']);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }

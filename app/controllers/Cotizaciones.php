@@ -128,31 +128,8 @@
             }
         }
 
-        public function get_solicitud_empresa(){
-            session_start();
-            $data = $this->modelCotizaciones->get_solicitud_empresa($_SESSION['usuario']['idUsuario']);
-            if(empty($data)){
-                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
-            }
-            else{
-                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
-            }
-        }
-
-        public function get_solicitud_empresa(){
-            session_start();
-            $data = $this->modelCotizaciones->get_solicitud_empresa($_SESSION['usuario']['idUsuario']);
-            if(empty($data)){
-                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
-            }
-            else{
-                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
-            }
-        }
-
         public function eliminar_solicitud_empresa($idSolicitud){
-            session_start();
-            $data = $this->modelCotizaciones->eliminar_solicitud_empresa($idSolicitud);
+            $data = $this->modelCotizaciones->eliminar_solicitud($idSolicitud);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }
@@ -161,9 +138,8 @@
             }
         }
 
-        public function eliminar_solicitudPersonalizada_empresa($idSolicitud){
-            session_start();
-            $data = $this->modelCotizaciones->eliminar_solicitudPersonalizada_empresa($idSolicitud);
+        public function eliminar_solicitudPersonalizada_empresa($idSolicitud,$idEmpresa){
+            $data = $this->modelCotizaciones->eliminar_solicitud_personalizada($idSolicitud,$idEmpresa);
             if(empty($data)){
                 throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
             }

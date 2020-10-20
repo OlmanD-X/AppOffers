@@ -40,7 +40,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="pedidos" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                        <table id="pedidosP" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="producto" rowspan="1" colspan="1" style="width: 25px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro. solicitud</th>

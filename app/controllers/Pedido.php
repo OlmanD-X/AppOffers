@@ -44,17 +44,7 @@
         }
         public function leer($idSolicitud)
         {
-            $registyOk = $this->modelPedido->PedidoPersonalizadoLeido($idSolicitud);
-            if($registyOk){
-                returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
-            }
-            else{
-                throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
-            }
-        }
-        public function aceptarPersonalizado($idSolicitud)
-        {
-            $registyOk = $this->modelPedido->aceptarPedidoPersonalizado($idSolicitud);
+            $registyOk = $this->modelPedido->PedidoLeido($idSolicitud);
             if($registyOk){
                 returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
             }
@@ -72,6 +62,28 @@
                 throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
             }
         }
+        public function aceptarPersonalizado($idSolicitud)
+        {
+            $registyOk = $this->modelPedido->aceptarPedidoPersonalizado($idSolicitud);
+            if($registyOk){
+                returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
+            }
+            else{
+                throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
+            }
+        }
+
+        public function leerPersonalizado($idSolicitud)
+        {
+            $registyOk = $this->modelPedido->PedidoPersonalizadoLeido($idSolicitud);
+            if($registyOk){
+                returnResponse(REGISTY_UPDATE_SUCCESSFULLY,'El estado del pedido fue actualizado con éxito');
+            }
+            else{
+                throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
+            }
+        }
+
         public function rechazarPersonalizado($idSolicitud)
         {
             $registyOk = $this->modelPedido->rechazarPedidoPersonalizado($idSolicitud);

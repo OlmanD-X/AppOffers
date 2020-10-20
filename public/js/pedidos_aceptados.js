@@ -13,10 +13,8 @@ const cargarTablaPedidos = async()=>{
         const sectionCompanies= document.getElementById('rpta')
         let html = ''
         for (const pedido of response.response.data) {
-            if(pedido.estado=='1' ){
-                estado="Pendiente"
-            }else if(pedido.estado=='2'){
-                estado="Leido"
+            if(pedido.estado=='3' ){
+                estado="Aceptado"
             }
             html+=
             `<tr id="${pedido.id}">
@@ -53,10 +51,8 @@ const cargarTablaPedidosPersonalizados = async()=>{
         const sectionCompanies= document.getElementById('rpta2')
         let html = ''
         for (const pedido of response.response.data) {
-            if(pedido.estado=='1' ){
-                estado="Pendiente"
-            }else if(pedido.estado=='2'){
-                estado="Leido"
+            if(pedido.estado=='3' ){
+                estado="Aceptado"
             }
             html+=
             `<tr id="${pedido.id}">

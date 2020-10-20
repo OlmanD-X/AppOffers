@@ -50,6 +50,11 @@
             $data = $this->db->getRegisties();
             return $data;
         }
+        public function PedidoLeido($idSolicitud){
+            $this->db->query("EXECUTE SP_LeerPedido @id=:id");
+            $this->db->bind(':id',$idSolicitud);
+            return $this->db->execute();
+        }
         public function PedidoPersonalizadoLeido($idSolicitud){
             $this->db->query("EXECUTE SP_LeerPedidoPersonalizado @id=:id");
             $this->db->bind(':id',$idSolicitud);

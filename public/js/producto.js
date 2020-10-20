@@ -89,6 +89,7 @@ const cargarTablaProductos = async()=>{
         } 
     }
 }
+
   $('#agregarProducto').on('shown.bs.modal', async function () {
     let response = await fetch('/AppOffers/Caracteristica/getAllSubcategoria')
     response = await response.json()
@@ -163,8 +164,6 @@ $(document).on('click','.eliminarProducto', async function () {
                   )
             }       
 })
-
-
 
 function LetrasNumeros(e){
     key = e.keyCode || e.which;

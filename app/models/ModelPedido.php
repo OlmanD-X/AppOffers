@@ -42,4 +42,10 @@
             $data = $this->db->getRegisties();
             return $data;
         }
+        public function mostrarDetallePedidoPersonalizado($idSolicitud){
+            $this->db->query("EXECUTE SP_DetallePedidoPersonalizada @id=:id");
+            $this->db->bind(':id',$idSolicitud);
+            $data = $this->db->getRegisties();
+            return $data;
+        }
     }

@@ -49,7 +49,7 @@
                                     <th class="sorting" tabindex="0" aria-controls="pedido" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="rpta">
                             
                             </tbody>
                         </table>
@@ -71,12 +71,11 @@
                                 <tr role="row">
                                     <th class="sorting_asc" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 15px;" aria-sort="ascending" aria-label="Rendering engine: activa para ordenar la columna descendentemente">Nro</th>
                                     <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Pedido</th>
-                                    <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 262.783px;" aria-label="Browser: activa para ordenar la columna ascendentemente">Producto</th>
                                     <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 233.3px;" aria-label="Platform(s): activa para ordenar la columna ascendentemente">Estado</th>
                                     <th class="sorting" tabindex="0" aria-controls="pedidoP" rowspan="1" colspan="1" style="width: 123.733px;" aria-label="CSS grade: activa para ordenar la columna ascendentemente">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="rpta2">
                             
                             </tbody>
                         </table>

@@ -71,7 +71,7 @@
                 throwError(UPDATED_DATA_NOT_COMPLETE,'Se produjo un error al actualizar los datos');
             }
         }
-        public function detallePedido($idSolicitud)
+        public function getDetalle($idSolicitud)
         {
             $data = $this->modelPedido->mostrarDetallePedido($idSolicitud);
             if(empty($data)){
@@ -80,5 +80,31 @@
             else{
                 returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
             }
+        }
+        public function getDetallePersonalizado($idSolicitud)
+        {
+            $data = $this->modelPedido->mostrarDetallePedidoPersonalizado($idSolicitud);
+            if(empty($data)){
+                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+            }
+            else{
+                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+            }
+        }
+        public function detallePedido($idSolicitud){
+            session_start();
+            $usuario = null;
+            if(isset($_SESSION['usuario']))
+                $usuario = $_SESSION['usuario'];
+            $data = ['usuario'=>$usuario];
+            $this->view(get_class($this).'/detalle_pedido',$data);
+        }
+        public function detallePedidoPersonalizado($idSolicitud){
+            session_start();
+            $usuario = null;
+            if(isset($_SESSION['usuario']))
+                $usuario = $_SESSION['usuario'];
+            $data = ['usuario'=>$usuario];
+            $this->view(get_class($this).'/detalle_pedido_personalizado',$data);
         }
     }

@@ -131,4 +131,14 @@
             $data = ['usuario'=>$usuario];
             $this->view(get_class($this).'/detalle_pedido_personalizado',$data);
         }
+
+        public function getCaracteristicaPedido($idSolicitud){
+            $data = $this->modelPedido->Contraoferta($idSolicitud);
+            if(empty($data)){
+                throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
+            }
+            else{
+                returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
+            }
+        }
     }

@@ -25,8 +25,7 @@ const loadPedido = async()=>{
                 </div>
             </div>
             <br>
-            <a href="/AppOffers/Pedido/detallePedidoPersonalizado/${pedido.id}" class="btn btn-outline-primary"><i class="fas fa-paper-plane" style="pointer-events:none;"></i>Contraoferta</a>
-
+            <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#agregarCaracteristica"><i class="fas fa-paper-plane"></i> Contraoferta</button>
         `
         }
         sectionCompanies.innerHTML = html
@@ -43,3 +42,84 @@ const loadPedido = async()=>{
 document.addEventListener('DOMContentLoaded',()=>{
     loadPedido()
 })
+
+const btnNew = document.getElementById('addCaracteristica')
+
+btnNew.addEventListener('click',async ()=>{
+    const data = new FormData()
+    data.append('caracteristicas',JSON.stringify(arrayDatosCaracteristicas))
+    let response = await fetch('/AppOffers/Pedido/addContraoferta',{
+        method:'POST',
+        body : data,
+    })
+    response = await response.json()
+    if(response.status==200){
+        Swal.fire(
+            'Registro Exitoso',
+            response.response.message,
+            'success'
+          )
+          loadPedido()
+    }
+    else if(response.status<200){
+        Swal.fire(
+            'Alerta',
+            response.response.message,
+            'warning'
+          )
+    }
+    else if(response.status>=300){
+        Swal.fire(
+            'Error',
+            response.response.message,
+            'error'
+          )
+    }
+})
+
+$('#agregarCaracteristica').on('shown.bs.modal', async function () {
+    let response = await fetch('/AppOffers/Pedido/getCaracteristicaPedido/'+location.pathname.substr(1).split('/')[3])
+    arrayDatosCaracteristicas=[]
+    response = await response.json()
+    if(response.status==203){
+        const sectionCaracteristica= document.getElementById('cuerpo')
+        let html = ''
+        for (const item of response.response.data) {
+            html+=`<div class="form-group">
+            <div class="row">
+                <div class="row col-12">
+                    <label class="col-3 descripcion">${item.tipo}</label>
+                    <input type="text" name="" class="form-control col-9 valor" onkeypress="return LetrasNumeros(event)">
+                </div>
+            </div>
+            </div>`
+        }
+        sectionCaracteristica.innerHTML = html
+    }
+    let arrayCaracteristicas = document.querySelectorAll('.valor')
+    let arrayLabels = document.querySelectorAll('.descripcion')
+        for(let i=0; i<arrayCaracteristicas.length;i++){
+            let obj = {caract:arrayLabels[i].textContent,valor:arrayCaracteristicas[i].value}
+            arrayDatosCaracteristicas.push(obj)
+        }
+})
+
+function LetrasNumeros(e){
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " abcdefghijklmnñopqrstuvwxyz";
+    numeros=" 0123456789";
+    especiales = "8-37-39-46";
+
+    tecla_especial = false
+    for(var i in especiales){
+         if(key == especiales[i]){
+             tecla_especial = true;
+             break;
+         }
+     }
+
+     if(letras.indexOf(tecla)==-1 && numeros.indexOf(tecla)==-1 && !tecla_especial){
+         return false;
+     }
+ }

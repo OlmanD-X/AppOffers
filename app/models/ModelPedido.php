@@ -60,4 +60,32 @@
             $this->db->bind(':id',$idSolicitud);
             return $this->db->execute();
         }
+        public function Contraoferta($idSolicitud){
+            $this->db->query("EXECUTE SP_Contraofertar @id=:idEmpresa");
+            $this->db->bind(':idEmpresa',$idSolicitud);
+            $data = $this->db->getRegisties();
+            return $data;
+        }
+
+        public function addContraoferta($idSolicitud,$idEmpresa,$caracteristicas){
+            $this->db->query("INSERT INTO Contraofertas(idSolicitud,idEmpresa,precio,estado,stateUser) VALUES(:idSolicitud,:idEmpresa,0.00,'1','1')");
+            $this->db->bind(':idSolicitud',$idSolicitud);
+            $this->db->bind(':idEmpresa',$idEmpresa);
+            if($this->db->execute()){
+                $this->db->query("SELECT MAX(idContraoferta) AS ID FROM Contraofertas");
+                $data = $this->db->getRegisty();
+                $id =$data->ID;
+                foreach ($caracteristicas as $item) {                   
+                    $this->db->query("INSERT INTO CaracteristicaContraoferta(descripcion,idCaracteristica,idContraoferta) VALUES(:carac,:valor,:id)");
+                    $this->db->bind(':id',$id);
+                    $this->db->bind(':carac',$item->caract);
+                    $this->db->bind(':valor',$item->valor);
+                    $this->db->execute();
+                }
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
     }

@@ -80,7 +80,7 @@ const cargarTablaPedidosPersonalizados = async()=>{
         }
         sectionCompanies.innerHTML = html
     }else if(response.status==304){
-        const sectionCompanies= document.getElementById('rpta')
+        const sectionCompanies= document.getElementById('rpta2')
         let html = ''
         sectionCompanies.innerHTML = html
     }

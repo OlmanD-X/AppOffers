@@ -150,18 +150,6 @@
             }
         }
 
-        // public function getAllCaracteristicaBySubcategoria($id)
-        // {
-        //     session_start();
-        //     $data = $this->modelCaracteristica->mostrarTodasCaracteristicasBySubcategoria($id);
-        //     if(empty($data)){
-        //         throwError(GET_DATA_NOT_COMPLETE,'No existen registros');
-        //     }
-        //     else{
-        //         returnResponse(GET_REGISTIES_SUCCESSFULLY,'Se obtuvieron los registros exitosamente',$data);
-        //     }
-        // }
-
         public function getCaracteristica($idSubcategoria)
         {
             session_start();

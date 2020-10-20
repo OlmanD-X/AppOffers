@@ -45,6 +45,26 @@
     </section>
     <!-- /.content -->
   </div>
+    <!-- Modal -->
+    <div class="modal fade" id="agregarCaracteristica" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contraofertar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body" id="cuerpo">
+            </div>
+            <div class="modal-footer" style="justify-content: center;">
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
+                <button type="button" class="btn btn-success" id="addCaracteristica"><i class="fa fa-save"></i> Enviar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal -->
   <!-- /.content-wrapper -->
   <!-- <footer class="main-footer">
     <div class="float-right d-none d-sm-block">

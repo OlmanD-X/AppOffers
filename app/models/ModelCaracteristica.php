@@ -114,13 +114,7 @@
             $data = $this->db->getRegisties();
             return $data;
         }
-
-        // public function mostrarTodasCaracteristicasBySubcategoria($id){
-        //     $this->db->query("SELECT car.idCaracteristica,s.descripcion as subcategoria ,car.descripcion FROM Caracteristicas car INNER JOIN Subcategorias s ON car.idSubcategoria=s.idSubcategoria WHERE s.idSubcategoria=$id");
-        //     $data = $this->db->getRegisties();
-        //     return $data;
-        // }
-
+        
         public function obtenerUnaCaracteristica($idSubcategoria){
             $this->db->query("SELECT idCaracteristica,descripcion,idSubcategoria FROM Caracteristicas WHERE idSubcategoria=:id");
             $this->db->bind(':id',$idSubcategoria);
